@@ -18,8 +18,17 @@ const useStyles = makeStyles((theme) => ({
         flex: '0 0 50%'
     },
     loginSideTwitterIcon: {
-        fontSize: 50,
+        fontSize: 45,
 
+    },
+    loginSideWrapper: {
+        width: 380
+    },
+    loginSideTitle: {
+        fontWeight: 700,
+        fontSize: 32,
+        marginBottom: 60,
+        marginTop: 20
     }
 }))
 
@@ -42,11 +51,12 @@ function SignIn() {
                 </ul>
             </section>
             <section className={classes.loginSide}>
-                <div>
+                <div className={classes.loginSideWrapper}>
                     <TwitterIcon color="primary" className={classes.loginSideTwitterIcon} />
-                    <Typography>Узнай, что происходит в мире прямо сейчас</Typography>
-                    <Typography>Присоединяйтесь к Твиттеру прямо сейчас!</Typography>
-                    <Button variant="contained" color="primary" fullWidth>Зарегистрироваться</Button>
+                    <Typography className={classes.loginSideTitle} variant="h4" gutterBottom>Узнай, что происходит в мире прямо сейчас</Typography>
+                    <Typography><b>Присоединяйтесь к Твиттеру прямо сейчас!</b></Typography>
+                    <br />
+                    <Button style={{marginBottom: 20}} variant="contained" color="primary" fullWidth>Зарегистрироваться</Button>
                     <Button variant="outlined" color="primary" fullWidth>Войти</Button>
                 </div>
             </section>
