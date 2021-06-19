@@ -1,6 +1,9 @@
 import React from 'react'
 import {Button, makeStyles, Typography} from "@material-ui/core";
 import TwitterIcon from '@material-ui/icons/Twitter';
+import SearchIcon from '@material-ui/icons/Search';
+import PeopleIcon from '@material-ui/icons/PeopleOutline';
+import MessageIcon from '@material-ui/icons/ModeCommentOutlined';
 
 const useStyles = makeStyles((theme) => ({
     wrapper: {
@@ -8,18 +11,41 @@ const useStyles = makeStyles((theme) => ({
         height: '100vh'
     },
     blueSide:{
-        backgroundColor: '#1DA1F2',
-        flex: '0 0 50%'
-    },
-    loginSide: {
+        backgroundColor: '#71C9F8',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         flex: '0 0 50%'
     },
+    blueSideListInfo: {
+        listStyle: 'none',
+        padding: 0,
+        margin: 0,
+        width: 380,
+        '& h6': {
+            display: 'flex',
+            alignItems: 'center',
+            color: 'white',
+            fontWeight: 700,
+            fontSize: 20,
+        }
+    },
+    blueSideListInfoItem: {
+        marginBottom: 40
+    },
+    blueSideListInfoIcon: {
+        fontSize: 32,
+        marginRight: 15
+    },
+    loginSide: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flex: '0 0 50%',
+        overflow: 'hidden'
+    },
     loginSideTwitterIcon: {
         fontSize: 45,
-
     },
     loginSideWrapper: {
         width: 380
@@ -38,15 +64,15 @@ function SignIn() {
     return (
         <div className={classes.wrapper}>
             <section className={classes.blueSide}>
-                <ul>
-                    <li>
-                        <Typography>Чиатйте то что, вам интересно</Typography>
+                <ul className={classes.blueSideListInfo}>
+                    <li className={classes.blueSideListInfoItem} >
+                        <Typography variant="h6"><SearchIcon className={classes.blueSideListInfoIcon} />Чиатйте о том что, вам интересно</Typography>
                     </li>
-                    <li>
-                        <Typography>Узнайте, о чем говорят в мире</Typography>
+                    <li className={classes.blueSideListInfoItem} >
+                        <Typography variant="h6"><PeopleIcon className={classes.blueSideListInfoIcon} />Узнайте, о чем говорят в мире</Typography>
                     </li>
-                    <li>
-                        <Typography>Присоединяйтесь к общению</Typography>
+                    <li className={classes.blueSideListInfoItem} >
+                        <Typography variant="h6"><MessageIcon className={classes.blueSideListInfoIcon} />Присоединяйтесь к общению</Typography>
                     </li>
                 </ul>
             </section>
