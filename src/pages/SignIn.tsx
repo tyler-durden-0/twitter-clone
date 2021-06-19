@@ -16,6 +16,10 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
         justifyContent: 'center',
         flex: '0 0 50%'
+    },
+    loginSideTwitterIcon: {
+        fontSize: 50,
+
     }
 }))
 
@@ -39,7 +43,7 @@ function SignIn() {
             </section>
             <section className={classes.loginSide}>
                 <div>
-                    <TwitterIcon />
+                    <TwitterIcon color="primary" className={classes.loginSideTwitterIcon} />
                     <Typography>Узнай, что происходит в мире прямо сейчас</Typography>
                     <Typography>Присоединяйтесь к Твиттеру прямо сейчас!</Typography>
                     <Button variant="contained" color="primary" fullWidth>Зарегистрироваться</Button>
