@@ -15,9 +15,20 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        flex: '0 0 50%'
+        flex: '0 0 50%',
+        overflow: 'hidden',
+        position: 'relative'
+    },
+    blueSideBigIcon: {
+        position: 'absolute',
+        left: '50%',
+        top: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: '350%',
+        height: '350%'
     },
     blueSideListInfo: {
+        position: 'relative',
         listStyle: 'none',
         padding: 0,
         margin: 0,
@@ -41,8 +52,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        flex: '0 0 50%',
-        overflow: 'hidden'
+        flex: '0 0 50%'
     },
     loginSideTwitterIcon: {
         fontSize: 45,
@@ -64,6 +74,7 @@ function SignIn() {
     return (
         <div className={classes.wrapper}>
             <section className={classes.blueSide}>
+                <TwitterIcon color="primary" className={classes.blueSideBigIcon} />
                 <ul className={classes.blueSideListInfo}>
                     <li className={classes.blueSideListInfoItem} >
                         <Typography variant="h6"><SearchIcon className={classes.blueSideListInfoIcon} />Чиатйте о том что, вам интересно</Typography>

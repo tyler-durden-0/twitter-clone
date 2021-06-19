@@ -77,7 +77,7 @@ export const theme = createMuiTheme({
         },
         MuiDialogTitle: {
             root: {
-                borderBottom: '1px solid rgb(204, 220, 000)',
+                borderBottom: '1px solid rgb(204, 214, 221)',
                 marginBottom: 10,
                 padding: '10px 15px',
                 '& h2': {
