@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button, makeStyles, Typography} from "@material-ui/core";
+import {Button, Dialog, FormControl, makeStyles, Typography} from "@material-ui/core";
 import TwitterIcon from '@material-ui/icons/Twitter';
 import SearchIcon from '@material-ui/icons/Search';
 import PeopleIcon from '@material-ui/icons/PeopleOutline';
@@ -95,6 +95,46 @@ function SignIn() {
                     <br />
                     <Button style={{marginBottom: 20}} variant="contained" color="primary" fullWidth>Зарегистрироваться</Button>
                     <Button variant="outlined" color="primary" fullWidth>Войти</Button>
+                    <Dialog>
+                        <DialogTitle id="form-dialog-title">
+                            <IconButton>
+                                <CloseIcon></CloseIcon>
+                            </IconButton>
+                            Настройка поиска
+                        </DialogTitle>
+                        <DialogContent>
+                            <DialogContentText>
+                                To subscribe to this website, please entery ...
+                                updates occasionally
+                            </DialogContentText>
+                            <FormControl component="fieldset" fullWidth>
+                                <FormGroup aria-label="position" row>
+                                    <TextField>
+                                        <div>
+                                            <div>
+                                                <FormLabel>
+                                                    Скрыть содержимое
+                                                    <CheckBox color="primary" />
+                                                </FormLabel>
+                                                <Typography variant="body2">
+                                                    Предотвражает появление содержимого поиска
+                                                </Typography>
+                                            </div>
+                                        </div>
+                                        <Radio value="a" name="radio-button-de...." ></Radio>
+                                    </TextField>
+                                </FormGroup>
+                            </FormControl>
+                        </DialogContent>
+                        <DialogActions>
+                            <Button onClick={handleClose} color="primary">
+                                Cancel
+                            </Button>
+                            <Button onClick={handeClose} variant="contained">
+                                Subscribe
+                            </Button>
+                        </DialogActions>
+                    </Dialog>
                 </div>
             </section>
         </div>
