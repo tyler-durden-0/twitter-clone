@@ -78,6 +78,9 @@ const useStyles = makeStyles((theme) => ({
         fontSize: 32,
         marginBottom: 60,
         marginTop: 20
+    },
+    loginSideField: {
+        marginBottom: 18
     }
 }))
 
@@ -125,7 +128,7 @@ function SignIn() {
                                 color="secondary"
                                 aria-label="close"
                             >
-                                <CloseIcon style={{fontSize: 26}} color="secondary"></CloseIcon>
+                                <CloseIcon style={{fontSize: 26}} color="secondary" />
                             </IconButton>
                             Войти в Твиттер
                         </DialogTitle>
@@ -133,6 +136,7 @@ function SignIn() {
                             <FormControl component="fieldset" fullWidth>
                                 <FormGroup aria-label="position" row>
                                     <TextField
+                                        className={classes.loginSideField}
                                         autoFocus
                                         id="email"
                                         label="E-Mail"
@@ -145,7 +149,8 @@ function SignIn() {
                                     />
 
                                     <TextField
-                                        autoFocus
+                                        className={classes.loginSideField}
+
                                         id="password"
                                         label="Пароль"
                                         InputLabelProps={{
@@ -155,18 +160,15 @@ function SignIn() {
                                         type="password"
                                         fullWidth
                                     />
-
+                                    <Button onClick={handleClose} variant="contained" color="primary" fullWidth>
+                                        Войти
+                                    </Button>
+                                    <br/>
+                                    <br/>
+                                    <br/>
                                 </FormGroup>
                             </FormControl>
                         </DialogContent>
-                        <DialogActions>
-                            <Button onClick={handleClose} color="primary">
-                                Cancel
-                            </Button>
-                            <Button onClick={handleClose} variant="contained">
-                                Subscribe
-                            </Button>
-                        </DialogActions>
                     </Dialog>
                 </div>
             </section>

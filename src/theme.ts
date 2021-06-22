@@ -35,7 +35,7 @@ export const theme = createMuiTheme({
     },
     shadows: [],
     overrides: {
-        MuiButtons: {
+        MuiButton: {
             root: {
                 borderRadius: 30,
                 textTransform: 'none',
