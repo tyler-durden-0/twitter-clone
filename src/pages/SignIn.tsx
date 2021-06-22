@@ -1,9 +1,22 @@
 import React from 'react'
-import {Button, Dialog, FormControl, makeStyles, Typography} from "@material-ui/core";
+import {Button, FormControl, makeStyles, Typography} from "@material-ui/core";
 import TwitterIcon from '@material-ui/icons/Twitter';
 import SearchIcon from '@material-ui/icons/Search';
 import PeopleIcon from '@material-ui/icons/PeopleOutline';
 import MessageIcon from '@material-ui/icons/ModeCommentOutlined';
+import Dialog from '@material-ui/core/Dialog'
+import DialogTitle from '@material-ui/core/DialogTitle'
+import IconButton from '@material-ui/core/IconButton'
+import DialogContent from '@material-ui/core/DialogContent'
+import DialogContentText from '@material-ui/core/DialogContentText'
+import FormGroup from '@material-ui/core/FormGroup'
+import FormLabel from '@material-ui/core/FormLabel'
+import TextField from '@material-ui/core/TextField'
+import CheckBox from '@material-ui/core/Checkbox'
+import DialogActions from '@material-ui/core/DialogActions'
+import CloseIcon from '@material-ui/icons/Close'
+import Radio from '@material-ui/core/Radio'
+
 
 const useStyles = makeStyles((theme) => ({
     wrapper: {
@@ -69,7 +82,16 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 function SignIn() {
+    const [open, setOpen] = React.useState(false)
     const classes = useStyles()
+
+    const handleClickOpen = () => {
+        setOpen(true)
+    }
+
+    const handleClose = () => {
+        setOpen(false)
+    }
 
     return (
         <div className={classes.wrapper}>
@@ -94,35 +116,46 @@ function SignIn() {
                     <Typography><b>Присоединяйтесь к Твиттеру прямо сейчас!</b></Typography>
                     <br />
                     <Button style={{marginBottom: 20}} variant="contained" color="primary" fullWidth>Зарегистрироваться</Button>
-                    <Button variant="outlined" color="primary" fullWidth>Войти</Button>
-                    <Dialog>
+                    <Button onClick={handleClickOpen} variant="outlined" color="primary" fullWidth>Войти</Button>
+
+                    <Dialog open={open} onClose={handleClose}>
                         <DialogTitle id="form-dialog-title">
-                            <IconButton>
-                                <CloseIcon></CloseIcon>
+                            <IconButton
+                                onClick={handleClose}
+                                color="secondary"
+                                aria-label="close"
+                            >
+                                <CloseIcon style={{fontSize: 26}} color="secondary"></CloseIcon>
                             </IconButton>
-                            Настройка поиска
+                            Войти в Твиттер
                         </DialogTitle>
                         <DialogContent>
-                            <DialogContentText>
-                                To subscribe to this website, please entery ...
-                                updates occasionally
-                            </DialogContentText>
                             <FormControl component="fieldset" fullWidth>
                                 <FormGroup aria-label="position" row>
-                                    <TextField>
-                                        <div>
-                                            <div>
-                                                <FormLabel>
-                                                    Скрыть содержимое
-                                                    <CheckBox color="primary" />
-                                                </FormLabel>
-                                                <Typography variant="body2">
-                                                    Предотвражает появление содержимого поиска
-                                                </Typography>
-                                            </div>
-                                        </div>
-                                        <Radio value="a" name="radio-button-de...." ></Radio>
-                                    </TextField>
+                                    <TextField
+                                        autoFocus
+                                        id="email"
+                                        label="E-Mail"
+                                        InputLabelProps={{
+                                            shrink: true
+                                        }}
+                                        variant="filled"
+                                        type="email"
+                                        fullWidth
+                                    />
+
+                                    <TextField
+                                        autoFocus
+                                        id="password"
+                                        label="Пароль"
+                                        InputLabelProps={{
+                                            shrink: true
+                                        }}
+                                        variant="filled"
+                                        type="password"
+                                        fullWidth
+                                    />
+
                                 </FormGroup>
                             </FormControl>
                         </DialogContent>
@@ -130,7 +163,7 @@ function SignIn() {
                             <Button onClick={handleClose} color="primary">
                                 Cancel
                             </Button>
-                            <Button onClick={handeClose} variant="contained">
+                            <Button onClick={handleClose} variant="contained">
                                 Subscribe
                             </Button>
                         </DialogActions>
