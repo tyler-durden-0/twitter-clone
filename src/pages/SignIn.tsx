@@ -4,21 +4,12 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import SearchIcon from '@material-ui/icons/Search';
 import PeopleIcon from '@material-ui/icons/PeopleOutline';
 import MessageIcon from '@material-ui/icons/ModeCommentOutlined';
-import Dialog from '@material-ui/core/Dialog'
-import DialogTitle from '@material-ui/core/DialogTitle'
-import IconButton from '@material-ui/core/IconButton'
-import DialogContent from '@material-ui/core/DialogContent'
-import DialogContentText from '@material-ui/core/DialogContentText'
 import FormGroup from '@material-ui/core/FormGroup'
-import FormLabel from '@material-ui/core/FormLabel'
 import TextField from '@material-ui/core/TextField'
-import CheckBox from '@material-ui/core/Checkbox'
-import DialogActions from '@material-ui/core/DialogActions'
-import CloseIcon from '@material-ui/icons/Close'
-import Radio from '@material-ui/core/Radio'
+import {ModalBlock} from "../components/ModalBlock";
 
 
-const useStyles = makeStyles((theme) => ({
+export const useStylesSingIn = makeStyles((theme) => ({
     wrapper: {
         display: 'flex',
         height: '100vh'
@@ -85,16 +76,18 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 function SignIn() {
-    const [open, setOpen] = React.useState(false)
-    const classes = useStyles()
+    const classes = useStylesSingIn()
+
+    const [visibleSignIn, setVisibleSignIN] = React.useState(false)
 
     const handleClickOpen = () => {
-        setOpen(true)
+        setVisibleSignIN(true)
     }
 
     const handleClose = () => {
-        setOpen(false)
+        setVisibleSignIN(false)
     }
+
 
     return (
         <div className={classes.wrapper}>
@@ -121,55 +114,43 @@ function SignIn() {
                     <Button style={{marginBottom: 20}} variant="contained" color="primary" fullWidth>Зарегистрироваться</Button>
                     <Button onClick={handleClickOpen} variant="outlined" color="primary" fullWidth>Войти</Button>
 
-                    <Dialog open={open} onClose={handleClose}>
-                        <DialogTitle id="form-dialog-title">
-                            <IconButton
-                                onClick={handleClose}
-                                color="secondary"
-                                aria-label="close"
-                            >
-                                <CloseIcon style={{fontSize: 26}} color="secondary" />
-                            </IconButton>
-                            Войти в Твиттер
-                        </DialogTitle>
-                        <DialogContent>
-                            <FormControl component="fieldset" fullWidth>
-                                <FormGroup aria-label="position" row>
-                                    <TextField
-                                        className={classes.loginSideField}
-                                        autoFocus
-                                        id="email"
-                                        label="E-Mail"
-                                        InputLabelProps={{
-                                            shrink: true
-                                        }}
-                                        variant="filled"
-                                        type="email"
-                                        fullWidth
-                                    />
+                    <ModalBlock visible={visibleSignIn} onClose={handleClose} classes={classes} title="Войти в аккаунт">
+                        <FormControl component="fieldset" fullWidth>
+                            <FormGroup aria-label="position" row>
+                                <TextField
+                                    className={classes.loginSideField}
+                                    autoFocus
+                                    id="email"
+                                    label="E-Mail"
+                                    InputLabelProps={{
+                                        shrink: true
+                                    }}
+                                    variant="filled"
+                                    type="email"
+                                    fullWidth
+                                />
 
-                                    <TextField
-                                        className={classes.loginSideField}
+                                <TextField
+                                    className={classes.loginSideField}
 
-                                        id="password"
-                                        label="Пароль"
-                                        InputLabelProps={{
-                                            shrink: true
-                                        }}
-                                        variant="filled"
-                                        type="password"
-                                        fullWidth
-                                    />
-                                    <Button onClick={handleClose} variant="contained" color="primary" fullWidth>
-                                        Войти
-                                    </Button>
-                                    <br/>
-                                    <br/>
-                                    <br/>
-                                </FormGroup>
-                            </FormControl>
-                        </DialogContent>
-                    </Dialog>
+                                    id="password"
+                                    label="Пароль"
+                                    InputLabelProps={{
+                                        shrink: true
+                                    }}
+                                    variant="filled"
+                                    type="password"
+                                    fullWidth
+                                />
+                                <Button onClick={handleClose} variant="contained" color="primary" fullWidth>
+                                    Войти
+                                </Button>
+                                <br/>
+                                <br/>
+                                <br/>
+                            </FormGroup>
+                        </FormControl>
+                    </ModalBlock>
                 </div>
             </section>
         </div>
