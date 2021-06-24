@@ -74,7 +74,13 @@ export const useStylesSingIn = makeStyles((theme) => ({
         marginBottom: 18
     },
     registerField: {
-        marginBottom: 25
+        marginBottom: theme.spacing(5)
+    },
+    registerFormControl: {
+        marginBottom: theme.spacing(2)
+    },
+    loginFormControl: {
+        marginBottom: theme.spacing(2)
     }
 }))
 
@@ -122,7 +128,7 @@ function SignIn() {
                     <Button onClick={handleClickOpenSignIn} variant="outlined" color="primary" fullWidth>Войти</Button>
 
                     <ModalBlock visible={visibleModal === 'signIn' } onClose={handleCloseModal} classes={classes} title="Войти в аккаунт">
-                        <FormControl component="fieldset" fullWidth>
+                        <FormControl className={classes.loginFormControl} component="fieldset" fullWidth>
                             <FormGroup aria-label="position" row>
                                 <TextField
                                     className={classes.loginSideField}
@@ -152,15 +158,12 @@ function SignIn() {
                                 <Button onClick={handleCloseModal} variant="contained" color="primary" fullWidth>
                                     Войти
                                 </Button>
-                                <br/>
-                                <br/>
-                                <br/>
                             </FormGroup>
                         </FormControl>
                     </ModalBlock>
 
                     <ModalBlock visible={visibleModal === 'signUp' } onClose={handleCloseModal} classes={classes} title="Создайте учетную запись">
-                        <FormControl component="fieldset" fullWidth>
+                        <FormControl className={classes.registerFormControl} component="fieldset" fullWidth>
                             <FormGroup aria-label="position" row>
                                 <TextField
                                     className={classes.registerField}
@@ -202,9 +205,6 @@ function SignIn() {
                                 <Button onClick={handleCloseModal} variant="contained" color="primary" fullWidth>
                                     Далее
                                 </Button>
-                                <br/>
-                                <br/>
-                                <br/>
                             </FormGroup>
                         </FormControl>
                     </ModalBlock>
