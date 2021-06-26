@@ -1,5 +1,5 @@
 import React from 'react'
-import {Container, Grid, makeStyles, Typography} from "@material-ui/core";
+import {Container, createStyles, Grid, InputBase, makeStyles, Typography, withStyles} from "@material-ui/core";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
@@ -37,6 +37,17 @@ const useHoeStyles = makeStyles(() => ({
         fontSize: 28
     }
 }))
+
+const CssTextField = withStyles(() =>
+    createStyles({
+        input: {
+            borderRadius: 30,
+            backgroundColor: '#E6ECF0',
+            height: 45,
+            padding: 0
+        }
+    })
+)(InputBase);
 
 export const Home = () => {
     const classes = useHoeStyles()
@@ -90,7 +101,10 @@ export const Home = () => {
                     </ul>
                 </Grid>
                 <Grid item xs={6}>xs</Grid>
-                <Grid item xs={3}>xs</Grid>
+                <Grid item xs={3}>
+                    <CssTextField fullWidth placeholder="Поиск по Твиттеру" />
+                </Grid>
+
             </Grid>
         </Container>
     )
