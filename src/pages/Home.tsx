@@ -10,6 +10,7 @@ import {
     Typography,
     withStyles
 } from "@material-ui/core";
+import classNames from 'classnames'
 import TwitterIcon from "@material-ui/icons/Twitter";
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
@@ -66,6 +67,12 @@ const useHoeStyles = makeStyles(() => ({
         padding: '10px 15px',
         '& h6': {
             fontWeight: 700
+        }
+    },
+    tweet: {
+        cursor: 'pointer',
+        '&:hover': {
+            backgroundColor: 'rgb(245, 248, 250)'
         }
     },
     tweetFooter: {
@@ -145,7 +152,7 @@ export const Home = () => {
                         <Paper className={classes.tweetsHeader} variant='outlined'>
                             <Typography variant='h6'>Главная</Typography>
                         </Paper>
-                        <Paper className={classes.tweetsHeader} variant='outlined'>
+                        <Paper className={classNames(classes.tweet, classes.tweetsHeader)} variant='outlined'>
                             <Grid container spacing={3}>
                                 <Grid item xs={1}>
                                     <Avatar
