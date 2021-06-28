@@ -27,11 +27,33 @@ export const useHomeStyles = makeStyles((theme: Theme) => ({
     sideMenuList: {
         listStyle: 'none',
         padding: 0,
-        margin: 0
+        margin: 0,
+        width: 230
     },
     sideMenuListItem: {
-        display: 'flex',
-        alignItems: 'center'
+        cursor: 'pointer',
+        '&:hover': {
+            '& div': {
+                backgroundColor: 'rgba(29, 161, 242, 0.1)',
+                '& h6': {
+                    color: theme.palette.primary.main
+                },
+                '& svg path': {
+                    fill: theme.palette.primary.main
+                }
+            }
+        },
+        '& div': {
+            display: 'inline-flex',
+            alignItems: 'center',
+            position: 'relative',
+            left: -10,
+            padding: '0 25px 0 20px',
+            borderRadius: 30,
+            height: 50,
+            marginBottom: 15,
+            transition: 'background-color 0.15s ease-in-out'
+        }
     },
     sideMenuListItemLabel: {
         fontWeight: 700,
@@ -39,7 +61,12 @@ export const useHomeStyles = makeStyles((theme: Theme) => ({
         marginLeft: 15
     },
     sideMenuListItemIcon: {
-        fontSize: 28
+        fontSize: 32,
+        marginLeft: -5
+    },
+    sideMenuTweetButton: {
+        padding: theme.spacing(3.2),
+        marginTop: theme.spacing(2)
     },
     tweetsWrapper: {
         borderRadius: 0,

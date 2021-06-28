@@ -2,13 +2,14 @@ import React from 'react'
 import IconButton from "@material-ui/core/IconButton";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import SearchIcon from "@material-ui/icons/Search";
-import {Typography} from "@material-ui/core";
+import Typography from "@material-ui/core/Typography";
 import NotificationsNoneOutlinedIcon from "@material-ui/icons/NotificationsNoneOutlined";
 import EmailOutlinedIcon from "@material-ui/icons/EmailOutlined";
 import BookmarkBorderOutlinedIcon from "@material-ui/icons/BookmarkBorderOutlined";
 import ListAltOutlinedIcon from "@material-ui/icons/ListAltOutlined";
 import PersonOutlineOutlinedIcon from "@material-ui/icons/PersonOutlineOutlined";
 import {useHomeStyles} from "../pages/Home";
+import {Button} from "@material-ui/core";
 
 interface SideMenuProps {
     classes: ReturnType<typeof useHomeStyles>
@@ -23,40 +24,43 @@ export const SideMenu: React.FC<SideMenuProps> = ({classes}: SideMenuProps): Rea
                 </IconButton>
             </li>
             <li className={classes.sideMenuListItem}>
-                <IconButton aria-label="delete">
+                <div>
                     <SearchIcon className={classes.sideMenuListItemIcon} />
-                </IconButton>
-                <Typography variant='h6' className={classes.sideMenuListItemLabel}>Поиск</Typography>
+                    <Typography variant='h6' className={classes.sideMenuListItemLabel}>Поиск</Typography>
+                </div>
             </li>
             <li className={classes.sideMenuListItem}>
-                <IconButton aria-label="delete">
+                <div>
                     <NotificationsNoneOutlinedIcon className={classes.sideMenuListItemIcon} />
-                </IconButton>
-                <Typography variant='h6' className={classes.sideMenuListItemLabel}>Уведомления</Typography>
+                    <Typography variant='h6' className={classes.sideMenuListItemLabel}>Уведомления</Typography>
+                </div>
             </li>
             <li className={classes.sideMenuListItem}>
-                <IconButton aria-label="delete">
+                <div>
                     <EmailOutlinedIcon className={classes.sideMenuListItemIcon} />
-                </IconButton>
-                <Typography variant='h6' className={classes.sideMenuListItemLabel}>Соодщения</Typography>
+                    <Typography variant='h6' className={classes.sideMenuListItemLabel}>Соодщения</Typography>
+                </div>
             </li>
             <li className={classes.sideMenuListItem}>
-                <IconButton aria-label="delete">
+                <div>
                     <BookmarkBorderOutlinedIcon className={classes.sideMenuListItemIcon} />
-                </IconButton>
-                <Typography variant='h6' className={classes.sideMenuListItemLabel}>Закладки</Typography>
+                    <Typography variant='h6' className={classes.sideMenuListItemLabel}>Закладки</Typography>
+                </div>
             </li>
             <li className={classes.sideMenuListItem}>
-                <IconButton aria-label="delete">
+                <div>
                     <ListAltOutlinedIcon className={classes.sideMenuListItemIcon} />
-                </IconButton>
-                <Typography variant='h6' className={classes.sideMenuListItemLabel}>Список</Typography>
+                    <Typography variant='h6' className={classes.sideMenuListItemLabel}>Список</Typography>
+                </div>
             </li>
             <li className={classes.sideMenuListItem}>
-                <IconButton aria-label="delete">
+                <div>
                     <PersonOutlineOutlinedIcon className={classes.sideMenuListItemIcon} />
-                </IconButton>
-                <Typography variant='h6' className={classes.sideMenuListItemLabel}>Профиль</Typography>
+                    <Typography variant='h6' className={classes.sideMenuListItemLabel}>Профиль</Typography>
+                </div>
+            </li>
+            <li className={classes.sideMenuListItem}>
+                <Button className={classes.sideMenuTweetButton} color="primary" variant="contained" fullWidth >Твитнуть</Button>
             </li>
         </ul>
     )
