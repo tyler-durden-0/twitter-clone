@@ -9,7 +9,8 @@ import BookmarkBorderOutlinedIcon from "@material-ui/icons/BookmarkBorderOutline
 import ListAltOutlinedIcon from "@material-ui/icons/ListAltOutlined";
 import PersonOutlineOutlinedIcon from "@material-ui/icons/PersonOutlineOutlined";
 import {useHomeStyles} from "../pages/Home";
-import {Button} from "@material-ui/core";
+import {Button, Hidden} from "@material-ui/core";
+import CreateIcon from '@material-ui/icons/CreateOutlined';
 
 interface SideMenuProps {
     classes: ReturnType<typeof useHomeStyles>
@@ -26,41 +27,61 @@ export const SideMenu: React.FC<SideMenuProps> = ({classes}: SideMenuProps): Rea
             <li className={classes.sideMenuListItem}>
                 <div>
                     <SearchIcon className={classes.sideMenuListItemIcon} />
-                    <Typography variant='h6' className={classes.sideMenuListItemLabel}>Поиск</Typography>
+                    <Hidden smDown>
+                        <Typography variant='h6' className={classes.sideMenuListItemLabel}>Поиск</Typography>
+                    </Hidden>
+
                 </div>
             </li>
             <li className={classes.sideMenuListItem}>
                 <div>
                     <NotificationsNoneOutlinedIcon className={classes.sideMenuListItemIcon} />
-                    <Typography variant='h6' className={classes.sideMenuListItemLabel}>Уведомления</Typography>
+                    <Hidden smDown>
+                        <Typography variant='h6' className={classes.sideMenuListItemLabel}>Уведомления</Typography>
+                    </Hidden>
                 </div>
             </li>
             <li className={classes.sideMenuListItem}>
                 <div>
                     <EmailOutlinedIcon className={classes.sideMenuListItemIcon} />
-                    <Typography variant='h6' className={classes.sideMenuListItemLabel}>Соодщения</Typography>
+                    <Hidden smDown>
+                        <Typography variant='h6' className={classes.sideMenuListItemLabel}>Соодщения</Typography>
+                    </Hidden>
                 </div>
             </li>
             <li className={classes.sideMenuListItem}>
                 <div>
                     <BookmarkBorderOutlinedIcon className={classes.sideMenuListItemIcon} />
-                    <Typography variant='h6' className={classes.sideMenuListItemLabel}>Закладки</Typography>
+                    <Hidden smDown>
+                        <Typography variant='h6' className={classes.sideMenuListItemLabel}>Закладки</Typography>
+                    </Hidden>
                 </div>
             </li>
             <li className={classes.sideMenuListItem}>
                 <div>
                     <ListAltOutlinedIcon className={classes.sideMenuListItemIcon} />
-                    <Typography variant='h6' className={classes.sideMenuListItemLabel}>Список</Typography>
+                    <Hidden smDown>
+                        <Typography variant='h6' className={classes.sideMenuListItemLabel}>Список</Typography>
+                    </Hidden>
                 </div>
             </li>
             <li className={classes.sideMenuListItem}>
                 <div>
                     <PersonOutlineOutlinedIcon className={classes.sideMenuListItemIcon} />
-                    <Typography variant='h6' className={classes.sideMenuListItemLabel}>Профиль</Typography>
+                    <Hidden smDown>
+                        <Typography variant='h6' className={classes.sideMenuListItemLabel}>Профиль</Typography>
+                    </Hidden>
                 </div>
             </li>
             <li className={classes.sideMenuListItem}>
-                <Button className={classes.sideMenuTweetButton} color="primary" variant="contained" fullWidth >Твитнуть</Button>
+                <Button className={classes.sideMenuTweetButton} color="primary" variant="contained" fullWidth >
+                    <Hidden smDown>
+                        Твитнуть
+                    </Hidden>
+                    <Hidden mdUp>
+                        <CreateIcon />
+                    </Hidden>
+                </Button>
             </li>
         </ul>
     )
