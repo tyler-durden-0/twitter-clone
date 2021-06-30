@@ -10,9 +10,24 @@ import {
     Typography,
     withStyles
 } from "@material-ui/core";
+import SearchIcon from "@material-ui/icons/SearchOutlined";
+import PersonAddIcon from '@material-ui/icons/PersonAddOutlined';
+import ImageOutlinedIcon from '@material-ui/icons/ImageOutlined';
+import EmojiIcon from '@material-ui/icons/SentimentSatisfiedOutlined';
+
+
 import grey from '@material-ui/core/colors/grey'
 import {Tweet} from "../components/Tweet";
 import {SideMenu} from "../components/SideMenu";
+import ListItem from '@material-ui/core/ListItem/ListItem'
+import Divider from '@material-ui/core/Divider/Divider'
+import ListItemAvatar from '@material-ui/core/ListItemAvatar/ListItemAvatar'
+import Avatar from '@material-ui/core/Avatar/Avatar'
+import ListItemText from '@material-ui/core/ListItemText/ListItemText'
+import List from '@material-ui/core/List/List'
+import Button from '@material-ui/core/Button/Button'
+import TextareaAutosize from '@material-ui/core/TextareaAutosize/TextareaAutosize'
+import CircularProgress from '@material-ui/core/CircularProgress/CircularProgress'
 
 export const useHomeStyles = makeStyles((theme: Theme) => ({
     wrapper: {
@@ -25,6 +40,8 @@ export const useHomeStyles = makeStyles((theme: Theme) => ({
         fontSize: 36
     },
     sideMenuList: {
+        position: 'sticky',
+        top: 0,
         listStyle: 'none',
         padding: 0,
         margin: 0,
