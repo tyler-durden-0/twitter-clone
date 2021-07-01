@@ -5,7 +5,7 @@ import {
     Grid,
     InputBase,
     makeStyles,
-    Paper,
+    Paper, TextField,
     Theme,
     Typography,
     withStyles
@@ -208,16 +208,39 @@ export const useHomeStyles = makeStyles((theme: Theme) => ({
     }
 }))
 
-const CssTextField = withStyles(() =>
-    createStyles({
-        input: {
+const SearchTextField = withStyles((theme: Theme) => ({
+    root: {
+        '& .MuiOutlinedInput-root': {
             borderRadius: 30,
             backgroundColor: '#E6ECF0',
-            height: 45,
-            padding: 0
+            padding: 0,
+            paddingLeft: 15,
+            '&.Mui-focused': {
+                backgroundColor: '#fff',
+                '& fieldset': {
+                    borderWidth: 1,
+                    borderColor: theme.palette
+                },
+                '& svg path': {
+                    fill: theme.palette.primary.main
+                },
+            },
+            '&:hover': {
+                '& fieldset': {
+                    borderColor: 'transparent'
+                }
+            },
+            '& fieldset': {
+                borderColor: 'transparent',
+                borderWidth: 1
+            }
+
         }
-    })
-)(InputBase);
+    },
+    '& .MuiOutlinedInput-input': {
+        padding: '12px 14px 14px 5px'
+    }
+}))(TextField);
 
 export const Home = () => {
     const classes = useHomeStyles()
@@ -290,7 +313,7 @@ export const Home = () => {
                     </Paper>
                 </Grid>
                 <Grid item xs={3}>
-                    <CssTextField fullWidth placeholder="Поиск по Твиттеру" />
+                    <SearchTextField fullWidth placeholder="Поиск по Твиттеру" />
                 </Grid>
             </Grid>
         </Container>
