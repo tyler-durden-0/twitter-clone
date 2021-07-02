@@ -1,9 +1,7 @@
 import React from 'react'
 import {
     Container,
-    createStyles,
     Grid, IconButton, InputAdornment,
-    InputBase,
     makeStyles,
     Paper, TextField,
     Theme,
@@ -199,7 +197,7 @@ export const useHomeStyles = makeStyles((theme: Theme) => ({
         width: 20,
         height: 20,
         margin: '0 10px',
-        '& .MuiCircleProgress-root': {
+        '& .MuiCircularProgress-root': {
             position: 'absolute'
         }
     },
@@ -220,7 +218,7 @@ const SearchTextField = withStyles((theme: Theme) => ({
                 backgroundColor: '#fff',
                 '& fieldset': {
                     borderWidth: 1,
-                    borderColor: theme.palette
+                    borderColor: theme.palette.primary.main
                 },
                 '& svg path': {
                     fill: theme.palette.primary.main
@@ -282,7 +280,7 @@ export const Home = (): React.ReactElement => {
                                     <div className={classes.addFormBottomRight}>
                                         <span>280</span>
                                         <div className={classes.addFormCircleProgress}>
-                                            <CircularProgress variant='static' size={20} />
+                                            <CircularProgress variant='static' size={20} thickness={4} value={18}/>
                                             <CircularProgress
                                                 style={{color: 'rgba(0, 0, 0, 0.1)'}}
                                                 variant='static'
@@ -381,7 +379,7 @@ export const Home = (): React.ReactElement => {
                                         />
                                     </ListItemAvatar>
                                     <ListItemText
-                                        primary='Беларусь'
+                                        primary='VladiMIR'
                                         secondary={
                                             <Typography component='span' variant='body2' >
                                                 @VladiMIR
