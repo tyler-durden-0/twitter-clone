@@ -1,7 +1,8 @@
 import React from 'react'
 import {
     Container,
-    Grid, IconButton, InputAdornment,
+    Grid,
+    InputAdornment,
     makeStyles,
     Paper, TextField,
     Theme,
@@ -10,8 +11,6 @@ import {
 } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/SearchOutlined";
 import PersonAddIcon from '@material-ui/icons/PersonAddOutlined';
-import ImageOutlinedIcon from '@material-ui/icons/ImageOutlined';
-import EmojiIcon from '@material-ui/icons/SentimentSatisfiedOutlined';
 
 
 import grey from '@material-ui/core/colors/grey'
@@ -24,9 +23,7 @@ import Avatar from '@material-ui/core/Avatar/Avatar'
 import ListItemText from '@material-ui/core/ListItemText/ListItemText'
 import List from '@material-ui/core/List/List'
 import Button from '@material-ui/core/Button/Button'
-import TextareaAutosize from '@material-ui/core/TextareaAutosize/TextareaAutosize'
-import CircularProgress from '@material-ui/core/CircularProgress/CircularProgress'
-import classNames from "classnames";
+import {AddTweetForm} from "../components/AddTweeForm";
 
 export const useHomeStyles = makeStyles((theme: Theme) => ({
     wrapper: {
@@ -256,45 +253,7 @@ export const Home = (): React.ReactElement => {
                             <Typography variant='h6'>Главная</Typography>
                         </Paper>
                         <Paper>
-                            <div className={classes.addForm}>
-                                <div className={classes.addFormBody}>
-                                    <Avatar
-                                        className={classes.tweetAvatar}
-                                        alt={`Аватарка пользователя Username`}
-                                        src='https://sun9-71.userapi.com/impf/c851416/v851416586/1e8a6b/86K3drulzUE.jpg?size=366x393&quality=96&sign=43981b77b080e0c9c21edff8a762058f&type=album'
-                                    />
-                                    <TextareaAutosize
-                                        className={classes.addFormTextarea}
-                                        placeholder='Что происходит'
-                                    />
-                                </div>
-                                <div className={classes.addFormBottom}>
-                                    <div className={classNames(classes.tweetFooter, classes.addFormBottomActions)}>
-                                        <IconButton color='primary'>
-                                            <ImageOutlinedIcon style={{fontSize: 26}} />
-                                        </IconButton>
-                                        <IconButton color='primary'>
-                                            <EmojiIcon style={{fontSize: 26}} />
-                                        </IconButton>
-                                    </div>
-                                    <div className={classes.addFormBottomRight}>
-                                        <span>280</span>
-                                        <div className={classes.addFormCircleProgress}>
-                                            <CircularProgress variant='static' size={20} thickness={4} value={18}/>
-                                            <CircularProgress
-                                                style={{color: 'rgba(0, 0, 0, 0.1)'}}
-                                                variant='static'
-                                                size={20}
-                                                thickness={4}
-                                                value={100}
-                                            />
-                                        </div>
-                                        <Button color='primary' variant='contained'>
-                                            Твитнуть
-                                        </Button>
-                                    </div>
-                                </div>
-                            </div>
+                            <AddTweetForm classes={classes} />
                             <div className={classes.addFormBottomLine} />
                         </Paper>
                         {[
