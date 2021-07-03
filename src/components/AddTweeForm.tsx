@@ -19,10 +19,14 @@ export const AddTweetForm: React.FC<AddTweetFormProps> = ({classes}: AddTweetFor
     const textLimitPercent = text.length / 280 * 100
     const maxLength = 280 - text.length
 
-    const handleChangeTextarea = (e: React.FormEvent<HTMLTextAreaElement>) => {
+    const handleChangeTextarea = (e: React.FormEvent<HTMLTextAreaElement>): void => {
         if(e.currentTarget) {
             setText(e.currentTarget.value)
         }
+    }
+
+    const handleClickAddTweet = (): void => {
+        setText('')
     }
 
     return(
@@ -69,7 +73,12 @@ export const AddTweetForm: React.FC<AddTweetFormProps> = ({classes}: AddTweetFor
                             />
                         </div>
                     </>}
-                    <Button disabled={textLimitPercent >= 100} color='primary' variant='contained'>
+                    <Button
+                        onClick={handleClickAddTweet}
+                        disabled={textLimitPercent >= 100}
+                        color='primary'
+                        variant='contained'
+                    >
                         Твитнуть
                     </Button>
                 </div>
