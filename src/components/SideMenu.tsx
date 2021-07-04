@@ -8,7 +8,7 @@ import EmailOutlinedIcon from "@material-ui/icons/EmailOutlined";
 import BookmarkBorderOutlinedIcon from "@material-ui/icons/BookmarkBorderOutlined";
 import ListAltOutlinedIcon from "@material-ui/icons/ListAltOutlined";
 import PersonOutlineOutlinedIcon from "@material-ui/icons/PersonOutlineOutlined";
-import {useHomeStyles} from "../pages/Home";
+import {useHomeStyles} from "../pages/Home/theme";
 import {Button, Hidden} from "@material-ui/core";
 import CreateIcon from '@material-ui/icons/CreateOutlined';
 

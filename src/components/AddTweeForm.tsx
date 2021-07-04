@@ -8,7 +8,7 @@ import EmojiIcon from '@material-ui/icons/SentimentSatisfiedOutlined';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize/TextareaAutosize'
 import CircularProgress from '@material-ui/core/CircularProgress/CircularProgress'
 import classNames from "classnames";
-import {useHomeStyles} from "../pages/Home";
+import {useHomeStyles} from "../pages/Home/theme";
 
 interface AddTweetFormProps{
     classes: ReturnType<typeof  useHomeStyles>
