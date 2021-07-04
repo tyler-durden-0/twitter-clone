@@ -4,10 +4,7 @@ import {
     Grid,
     InputAdornment,
     Paper,
-    TextField,
-    Theme,
     Typography,
-    withStyles
 } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/SearchOutlined";
 import PersonAddIcon from '@material-ui/icons/PersonAddOutlined';
@@ -24,40 +21,9 @@ import List from '@material-ui/core/List/List'
 import Button from '@material-ui/core/Button/Button'
 import {AddTweetForm} from "../../components/AddTweeForm";
 import {useHomeStyles} from './theme'
+import {SearchTextField} from "../../components/SearchTextField";
 
-const SearchTextField = withStyles((theme: Theme) => ({
-    root: {
-        '& .MuiOutlinedInput-root': {
-            borderRadius: 30,
-            backgroundColor: '#E6ECF0',
-            padding: 0,
-            paddingLeft: 15,
-            '&.Mui-focused': {
-                backgroundColor: '#fff',
-                '& fieldset': {
-                    borderWidth: 1,
-                    borderColor: theme.palette.primary.main
-                },
-                '& svg path': {
-                    fill: theme.palette.primary.main
-                },
-            },
-            '&:hover': {
-                '& fieldset': {
-                    borderColor: 'transparent'
-                }
-            },
-            '& fieldset': {
-                borderColor: 'transparent',
-                borderWidth: 1
-            }
 
-        }
-    },
-    '& .MuiOutlinedInput-input': {
-        padding: '12px 14px 14px 5px'
-    }
-}))(TextField);
 
 export const Home = (): React.ReactElement => {
     const classes = useHomeStyles()
