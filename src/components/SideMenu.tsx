@@ -11,12 +11,24 @@ import PersonOutlineOutlinedIcon from "@material-ui/icons/PersonOutlineOutlined"
 import {useHomeStyles} from "../pages/Home/theme";
 import {Button, Hidden} from "@material-ui/core";
 import CreateIcon from '@material-ui/icons/CreateOutlined';
+import {ModalBlock} from "./ModalBlock";
+import {AddTweetForm} from "./AddTweeForm";
 
 interface SideMenuProps {
     classes: ReturnType<typeof useHomeStyles>
 }
 
 export const SideMenu: React.FC<SideMenuProps> = ({classes}: SideMenuProps): React.ReactElement => {
+    const [visibleAddTweet, setVisibleAddTweet] = React.useState<boolean>(false)
+
+    const handleOpenAddTweet = () => {
+        setVisibleAddTweet(true)
+    }
+
+    const onCloseAddTweet = () => {
+        setVisibleAddTweet(false)
+    }
+
     return (
         <ul className={classes.sideMenuList}>
             <li className={classes.sideMenuListItem}>
@@ -74,7 +86,12 @@ export const SideMenu: React.FC<SideMenuProps> = ({classes}: SideMenuProps): Rea
                 </div>
             </li>
             <li className={classes.sideMenuListItem}>
-                <Button className={classes.sideMenuTweetButton} color="primary" variant="contained" fullWidth >
+                <Button
+                    onClick={handleOpenAddTweet}
+                    className={classes.sideMenuTweetButton}
+                    color="primary"
+                    variant="contained"
+                    fullWidth>
                     <Hidden smDown>
                         Твитнуть
                     </Hidden>
@@ -82,6 +99,11 @@ export const SideMenu: React.FC<SideMenuProps> = ({classes}: SideMenuProps): Rea
                         <CreateIcon />
                     </Hidden>
                 </Button>
+                <ModalBlock visible={visibleAddTweet} title="" onClose={onCloseAddTweet}>
+                    <div style={{width: 450}}>
+                        <AddTweetForm classes={classes} />
+                    </div>
+                </ModalBlock>
             </li>
         </ul>
     )

@@ -9,7 +9,7 @@ import {useStylesSingIn} from "../pages/SignIn";
 interface ModalBlockProps {
     title: string
     children: React.ReactNode
-    classes: ReturnType<typeof useStylesSingIn>
+    classes?: ReturnType<typeof useStylesSingIn>
     visible?: boolean
     onClose: ()  => void
 }
