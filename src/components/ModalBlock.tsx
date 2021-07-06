@@ -7,7 +7,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import {useStylesSingIn} from "../pages/SignIn";
 
 interface ModalBlockProps {
-    title: string
+    title?: string
     children: React.ReactNode
     classes?: ReturnType<typeof useStylesSingIn>
     visible?: boolean
