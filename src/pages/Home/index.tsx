@@ -26,6 +26,7 @@ import {SearchTextField} from "../../components/SearchTextField";
 
 
 export const Home = (): React.ReactElement => {
+
     const classes = useHomeStyles()
 
     return (

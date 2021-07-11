@@ -1,16 +1,19 @@
-import axios from 'axios'
-import { call, takeLatest } from 'redux-saga/effects'
-import {TweetsActionsType} from "./actionCreaters";
+import {call, put, takeLatest} from 'redux-saga/effects'
+import {setTweets, setTweetsLoadingState, TweetsActionsType} from "./actionCreaters";
 import {TweetsApi} from "../../../services/api/tweetsApi";
-import {TweetsState} from "./contracts/state";
+import {LoadingState, TweetsState} from "./contracts/state";
 
 
 export function* fetchTweetsRequest() {
-    const data: TweetsState['items'] = yield call(TweetsApi.fetchTweets);
-    console.log(data)
+    try {
+        const items: TweetsState['items'] = yield call(TweetsApi.fetchTweets);
+        //yield put() - то же самое что и dispatch в redux
+        yield put(setTweets(items))
+    } catch (error) {
+        yield put(setTweetsLoadingState(LoadingState.ERROR))
+    }
 }
 
-// Our watcher Saga: spawn a new incrementAsync task on each INCREMENT_ASYNC
 export function* tweetsSaga() {
     yield takeLatest(TweetsActionsType.FETCH_TWEETS, fetchTweetsRequest)
 }
