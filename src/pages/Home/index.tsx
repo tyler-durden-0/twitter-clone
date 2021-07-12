@@ -22,12 +22,20 @@ import Button from '@material-ui/core/Button/Button'
 import {AddTweetForm} from "../../components/AddTweeForm";
 import {useHomeStyles} from './theme'
 import {SearchTextField} from "../../components/SearchTextField";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchTweets} from "../../store/ducks/tweets/actionCreaters";
+import {selectTweetsItems} from "../../store/ducks/tweets/selectors";
 
 
 
 export const Home = (): React.ReactElement => {
-
     const classes = useHomeStyles()
+    const dispatch = useDispatch()
+    const tweets = useSelector(selectTweetsItems)
+
+    React.useEffect(()=> {
+        dispatch(fetchTweets())
+    }, [dispatch])
 
     return (
         <Container className={classes.wrapper} maxWidth="lg">
@@ -47,16 +55,14 @@ export const Home = (): React.ReactElement => {
                             <div className={classes.addFormBottomLine} />
                         </Paper>
                         {[
-                            ...new Array(20).fill(
+                            tweets.map((tweet) => (
                                 <Tweet
-                                    user={{
-                                        fullName:'Иван',
-                                        userName: 'Чернецкий Иван Романович',
-                                        avatarUrl: 'https://sun9-71.userapi.com/impf/c851416/v851416586/1e8a6b/86K3drulzUE.jpg?size=366x393&quality=96&sign=43981b77b080e0c9c21edff8a762058f&type=album'
-                                    }}
+                                    key={tweet._id}
+                                    user={tweet.user}
                                     classes={classes}
-                                    text='It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'
+                                    text={tweet.text}
                                 />
+                                )
                             )
                         ]}
                     </Paper>
