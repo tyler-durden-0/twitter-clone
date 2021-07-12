@@ -8,7 +8,7 @@ import {
 } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/SearchOutlined";
 import PersonAddIcon from '@material-ui/icons/PersonAddOutlined';
-
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 import {Tweet} from "../../components/Tweet";
 import {SideMenu} from "../../components/SideMenu";
@@ -24,7 +24,7 @@ import {useHomeStyles} from './theme'
 import {SearchTextField} from "../../components/SearchTextField";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchTweets} from "../../store/ducks/tweets/actionCreaters";
-import {selectTweetsItems} from "../../store/ducks/tweets/selectors";
+import {selectIsTweetsLoading, selectTweetsItems} from "../../store/ducks/tweets/selectors";
 
 
 
@@ -32,6 +32,7 @@ export const Home = (): React.ReactElement => {
     const classes = useHomeStyles()
     const dispatch = useDispatch()
     const tweets = useSelector(selectTweetsItems)
+    const isLoading = useSelector(selectIsTweetsLoading)
 
     React.useEffect(()=> {
         dispatch(fetchTweets())
@@ -54,17 +55,13 @@ export const Home = (): React.ReactElement => {
                             </div>
                             <div className={classes.addFormBottomLine} />
                         </Paper>
-                        {[
-                            tweets.map((tweet) => (
-                                <Tweet
-                                    key={tweet._id}
-                                    user={tweet.user}
-                                    classes={classes}
-                                    text={tweet.text}
-                                />
-                                )
+                        {
+                            isLoading ? <div className={classes.tweetsCentred}><CircularProgress/></div> : tweets.map((tweet) =>
+                                (
+                                    <Tweet key={tweet._id} user={tweet.user} classes={classes} text={tweet.text} />
+                                    )
                             )
-                        ]}
+                        }
                     </Paper>
                 </Grid>
                 <Grid sm={3} md={3} item>

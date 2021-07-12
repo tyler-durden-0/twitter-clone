@@ -64,6 +64,10 @@ export const useHomeStyles = makeStyles((theme: Theme) => ({
         borderBottom: '0'
 
     },
+    tweetsCentred: {
+        marginTop: 50,
+        textAlign: 'center'
+    },
     tweetsHeader: {
         borderTop: 0,
         borderRight: 0,
