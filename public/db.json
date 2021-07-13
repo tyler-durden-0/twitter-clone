@@ -1,0 +1,101 @@
+{
+  "tweets": [
+    {
+      "_id": "60e97dc2a654c01114dfebb6",
+      "text": "Amet laborum proident magna aliqua cillum aliquip nostrud consequat. In ad sint magna deserunt fugiat et ea enim dolor commodo culpa proident aute. Deserunt adipisicing excepteur minim nostrud proident nulla consectetur duis aute officia. Irure elit nulla incididunt excepteur eiusmod. Non do non culpa minim incididunt eiusmod mollit eu.",
+      "user": {
+        "fullName": "Anthony Owen",
+        "userName": "lorene",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?5"
+      }
+    },
+    {
+      "_id": "60e97dc294a446f6046ab318",
+      "text": "In et ea proident laboris fugiat ut eiusmod id elit. Ut ad in deserunt duis sint esse occaecat et est magna dolor. Ullamco in id in ea cillum cillum nulla excepteur consequat. Aute amet aliqua cillum sit. Aute quis reprehenderit anim officia nostrud incididunt exercitation dolor ut irure proident laborum laboris.",
+      "user": {
+        "fullName": "Francine Finley",
+        "userName": "trudy",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?3"
+      }
+    },
+    {
+      "_id": "60e97dc2b6ae1dc6e174d848",
+      "text": "Cupidatat cupidatat sint Lorem qui mollit non ea laboris excepteur. Est eu irure irure et Lorem occaecat laborum anim officia aliquip ea sint velit et. Commodo irure minim cillum sunt deserunt irure labore. Nostrud duis officia et occaecat et incididunt reprehenderit consectetur est in cupidatat aliqua eu. Aute occaecat commodo dolor ut voluptate et deserunt officia in.",
+      "user": {
+        "fullName": "Kimberly Parsons",
+        "userName": "pauline",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?5"
+      }
+    },
+    {
+      "_id": "60e97dc280edeef15cd75456",
+      "text": "Aliquip dolore laborum tempor veniam magna duis pariatur proident enim ex occaecat laboris fugiat id. Proident do anim anim labore deserunt labore excepteur id excepteur mollit laborum incididunt esse eu. Laboris amet cupidatat nisi cupidatat nostrud occaecat deserunt eu reprehenderit minim sit sunt culpa ipsum. Magna elit tempor laborum tempor labore ea labore. Commodo ut nisi esse veniam laboris minim ad quis tempor.",
+      "user": {
+        "fullName": "Thomas Harmon",
+        "userName": "sonja",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?5"
+      }
+    },
+    {
+      "_id": "60e97dc2288d8a3fcb1c2a30",
+      "text": "Irure in dolor reprehenderit cillum occaecat exercitation laboris enim officia aliquip magna ut nostrud. Dolor sint quis tempor est excepteur et id consectetur. Ipsum laborum Lorem ea dolor deserunt eiusmod. Mollit esse dolore proident qui ipsum. Occaecat aliqua laboris exercitation culpa quis cupidatat tempor in mollit sunt.",
+      "user": {
+        "fullName": "Lindsay Moses",
+        "userName": "zelma",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?1"
+      }
+    },
+    {
+      "_id": "60e97dc2235755b87ce946f9",
+      "text": "Labore culpa velit et amet ipsum nostrud incididunt et cupidatat pariatur enim elit. Elit ipsum sunt laboris nostrud nulla consequat voluptate. Nisi reprehenderit sunt cupidatat deserunt laborum id cupidatat. Labore voluptate amet occaecat ad mollit dolore. Tempor aute minim incididunt anim duis non amet excepteur do.",
+      "user": {
+        "fullName": "Raymond Walker",
+        "userName": "janelle",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?1"
+      }
+    },
+    {
+      "_id": "60e97dc244b3619669dde591",
+      "text": "Culpa aliquip laboris voluptate enim irure tempor et aliqua excepteur ad exercitation. Laboris et labore dolor deserunt labore adipisicing ea sint in dolore aliquip reprehenderit fugiat velit. Et sit officia fugiat do ullamco duis. Ullamco nostrud deserunt minim elit non officia. Officia duis labore elit et voluptate magna dolor ipsum aliqua ad fugiat.",
+      "user": {
+        "fullName": "Stafford Long",
+        "userName": "kirk",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?4"
+      }
+    },
+    {
+      "_id": "60e97dc28b18438d4d2adcd8",
+      "text": "Lorem aute ut ad labore minim mollit. Dolore minim consequat ullamco anim ut officia mollit velit esse eiusmod occaecat nulla adipisicing irure. Tempor voluptate excepteur fugiat sit labore excepteur dolor. Id consectetur in aute laborum esse nostrud deserunt minim enim. Commodo veniam ad mollit nisi ut elit exercitation amet labore Lorem occaecat consequat excepteur aute.",
+      "user": {
+        "fullName": "Geraldine Herrera",
+        "userName": "angelia",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?4"
+      }
+    },
+    {
+      "_id": "60e97dc2e49abf1d71931241",
+      "text": "Laborum ut est adipisicing et do dolore. Minim aliquip qui quis excepteur. Elit et magna commodo nulla laborum velit mollit. Veniam tempor sit incididunt laborum. Et nisi culpa ea eu id esse mollit culpa.",
+      "user": {
+        "fullName": "Mariana Foreman",
+        "userName": "ross",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?5"
+      }
+    },
+    {
+      "_id": "60e97dc20ebe12c40e1b6e32",
+      "text": "Ipsum do est magna quis sit irure aliqua nostrud anim consequat ut. Excepteur exercitation culpa exercitation eiusmod amet dolor amet sint laboris irure velit. Excepteur quis consequat labore consequat eiusmod culpa cupidatat anim dolor occaecat et exercitation aliquip nostrud. Consectetur Lorem labore reprehenderit do et. Incididunt aute ipsum consectetur proident exercitation nostrud ex fugiat.",
+      "user": {
+        "fullName": "Frieda Diaz",
+        "userName": "griffith",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?2"
+      }
+    }
+  ],
+  "user": {
+    "_id": "60e97dc2a654c01114dfebb6",
+    "fullName": "Chernetski Ivan",
+    "userName": "chrnvn",
+    "avatarUrl": "https://sun1.beltelecom-by-minsk.userapi.com/s/v1/if1/9khHCRpmoU4ERjkITliQiBWdLwezHBJpDVe5B9KuX9Sn_CtCtCm7YD6IF4xy_H_slHaPpf7N.jpg?size=50x0&quality=96&crop=1,29,362,362&ava=1"
+
+  }
+}
