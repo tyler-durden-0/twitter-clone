@@ -11,14 +11,12 @@ import {theme} from './theme'
 import {store} from "./store/store";
 
 ReactDOM.render(
-  <React.StrictMode>
-      <ThemeProvider theme={theme}>
-          <BrowserRouter>
-              <Provider store={store}>
-                  <App />
-              </Provider>
-          </BrowserRouter>
-      </ThemeProvider>
-  </React.StrictMode>,
+    <ThemeProvider theme={theme}>
+        <BrowserRouter>
+            <Provider store={store}>
+                <App />
+            </Provider>
+        </BrowserRouter>
+    </ThemeProvider>,
   document.getElementById('root')
 );

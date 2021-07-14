@@ -91,6 +91,29 @@
       }
     }
   ],
+  "tags": [
+    {"name":  "#HandOffRussionHistory", "count": 3357, "_id": "60e97dc2a654c01114db6"},
+    {"name":  "Лукашенко", "count": 765, "_id": "60e97dce54c01114dfebb6"},
+    {"name":  "Беларусь", "count": 167, "_id": "60e97dc2a65414dfebb6"},
+    {"name":  "Санкции", "count": 26, "_id": "60e9qwe2a654c01114dfebb6"}
+  ],
+  "users": [
+    {
+      "fullName": "Thomas Harmon",
+      "userName": "sonja",
+      "avatarUrl": "https://source.unsplash.com/random/100x100?5"
+    },
+    {
+      "fullName": "Frieda Diaz",
+      "userName": "griffith",
+      "avatarUrl": "https://source.unsplash.com/random/100x100?2"
+    },
+    {
+      "fullName": "Stafford Long",
+      "userName": "kirk",
+      "avatarUrl": "https://source.unsplash.com/random/100x100?4"
+    }
+  ],
   "user": {
     "_id": "60e97dc2a654c01114dfebb6",
     "fullName": "Chernetski Ivan",
