@@ -1,7 +1,7 @@
 import React from 'react'
 import {
     Container,
-    Grid,
+    Grid, IconButton,
     InputAdornment,
     Paper,
     Typography,
@@ -28,6 +28,7 @@ import {selectIsTweetsLoading, selectTweetsItems} from "../../store/ducks/tweets
 import {fetchTags} from "../../store/tags/actionCreaters";
 import {Tags} from "../../components/Tags";
 import {Route} from "react-router-dom";
+import {BackButton} from "../../components/BackButton";
 
 
 
@@ -51,12 +52,19 @@ export const Home = (): React.ReactElement => {
                 <Grid sm={8} md={6} item>
                     <Paper className={classes.tweetsWrapper}  variant='outlined'>
                         <Paper className={classes.tweetsHeader} variant='outlined'>
+
+                            <Route path="/home/:any">
+                                <BackButton />
+                            </Route>
+
                             <Route path={['/home', '/home/search']} exact>
                                 <Typography variant='h6'>Твиты</Typography>
                             </Route>
+
                             <Route path={['/home/tweet']}>
                                 <Typography variant='h6'>Твитнуть</Typography>
                             </Route>
+
                         </Paper>
 
                         <Route path={['/home', '/home/search']} exact>

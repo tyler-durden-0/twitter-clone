@@ -69,6 +69,8 @@ export const useHomeStyles = makeStyles((theme: Theme) => ({
         textAlign: 'center'
     },
     tweetsHeader: {
+        display: 'flex',
+        alignItems: 'center',
         borderTop: 0,
         borderRight: 0,
         borderLeft: 0,
@@ -78,8 +80,13 @@ export const useHomeStyles = makeStyles((theme: Theme) => ({
             fontWeight: 700
         }
     },
+
+    tweetsHeaderBackButton: {
+        marginRight: 20
+    },
     tweet: {
         display: 'flex',
+        alignItems: 'flex-start',
         cursor: 'pointer',
         paddingTop: 15,
         paddingLeft: 20,
