@@ -102,6 +102,10 @@ export const useHomeStyles = makeStyles((theme: Theme) => ({
     tweetUserName: {
         color: grey[500]
     },
+    tweetWrapper: {
+        color: 'inherit',
+        textDecoration: 'none'
+    },
     rightSide: {
         paddingTop: 20,
         position: 'sticky',

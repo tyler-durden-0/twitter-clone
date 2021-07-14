@@ -27,6 +27,7 @@ import {fetchTweets} from "../../store/ducks/tweets/actionCreaters";
 import {selectIsTweetsLoading, selectTweetsItems} from "../../store/ducks/tweets/selectors";
 import {fetchTags} from "../../store/tags/actionCreaters";
 import {Tags} from "../../components/Tags";
+import {Route} from "react-router-dom";
 
 
 
@@ -50,21 +51,31 @@ export const Home = (): React.ReactElement => {
                 <Grid sm={8} md={6} item>
                     <Paper className={classes.tweetsWrapper}  variant='outlined'>
                         <Paper className={classes.tweetsHeader} variant='outlined'>
-                            <Typography variant='h6'>Главная</Typography>
+                            <Route path={['/home', '/home/search']} exact>
+                                <Typography variant='h6'>Твиты</Typography>
+                            </Route>
+                            <Route path={['/home/tweet']}>
+                                <Typography variant='h6'>Твитнуть</Typography>
+                            </Route>
                         </Paper>
-                        <Paper>
-                            <div className={classes.addForm}>
-                                <AddTweetForm classes={classes} />
-                            </div>
-                            <div className={classes.addFormBottomLine} />
-                        </Paper>
-                        {
-                            isLoading ? <div className={classes.tweetsCentred}><CircularProgress/></div> : tweets.map((tweet) =>
-                                (
-                                    <Tweet key={tweet._id} user={tweet.user} classes={classes} text={tweet.text} />
+
+                        <Route path={['/home', '/home/search']} exact>
+                            <Paper>
+                                <div className={classes.addForm}>
+                                    <AddTweetForm classes={classes} />
+                                </div>
+                                <div className={classes.addFormBottomLine} />
+                            </Paper>
+                        </Route>
+                        <Route path="/home" exact>
+                            {
+                                isLoading ? <div className={classes.tweetsCentred}><CircularProgress/></div> : tweets.map((tweet) =>
+                                    (
+                                        <Tweet id={tweet._id} key={tweet._id} classes={classes} {...tweet} />
                                     )
-                            )
-                        }
+                                )
+                            }
+                        </Route>
                     </Paper>
                 </Grid>
                 <Grid sm={3} md={3} item>
