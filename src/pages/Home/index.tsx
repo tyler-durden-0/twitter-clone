@@ -1,7 +1,7 @@
 import React from 'react'
 import {
     Container,
-    Grid, IconButton,
+    Grid,
     InputAdornment,
     Paper,
     Typography,
@@ -25,10 +25,11 @@ import {SearchTextField} from "../../components/SearchTextField";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchTweets} from "../../store/ducks/tweets/actionCreaters";
 import {selectIsTweetsLoading, selectTweetsItems} from "../../store/ducks/tweets/selectors";
-import {fetchTags} from "../../store/tags/actionCreaters";
+import {fetchTags} from "../../store/ducks/tags/actionCreaters";
 import {Tags} from "../../components/Tags";
 import {Route} from "react-router-dom";
 import {BackButton} from "../../components/BackButton";
+import {FullTweet} from "./components/FullTweet";
 
 
 
@@ -75,15 +76,18 @@ export const Home = (): React.ReactElement => {
                                 <div className={classes.addFormBottomLine} />
                             </Paper>
                         </Route>
+
                         <Route path="/home" exact>
                             {
                                 isLoading ? <div className={classes.tweetsCentred}><CircularProgress/></div> : tweets.map((tweet) =>
                                     (
-                                        <Tweet id={tweet._id} key={tweet._id} classes={classes} {...tweet} />
+                                        <Tweet key={tweet._id} classes={classes} {...tweet} />
                                     )
                                 )
                             }
                         </Route>
+
+                        <Route path="/home/tweet/:id" exact component={FullTweet} />
                     </Paper>
                 </Grid>
                 <Grid sm={3} md={3} item>

@@ -11,7 +11,7 @@ import {Link} from 'react-router-dom'
 
 
 interface TweetProps {
-    id: string
+    _id: string
     text: string
     classes: ReturnType<typeof useHomeStyles>
     user: {
@@ -21,9 +21,9 @@ interface TweetProps {
     }
 }
 
-export const Tweet: React.FC<TweetProps> = ({text, id, user, classes}: TweetProps): React.ReactElement => {
+export const Tweet: React.FC<TweetProps> = ({text, _id, user, classes}: TweetProps): React.ReactElement => {
     return (
-        <Link className={classes.tweetWrapper} to={`/home/tweet/${id}`}>
+        <Link className={classes.tweetWrapper} to={`/home/tweet/${_id}`}>
             <Paper className={classNames(classes.tweet, classes.tweetsHeader)} variant='outlined'>
                 <Avatar
                     className={classes.tweetAvatar}

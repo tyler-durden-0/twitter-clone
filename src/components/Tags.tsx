@@ -6,7 +6,7 @@ import ListItemText from "@material-ui/core/ListItemText/ListItemText";
 import Divider from "@material-ui/core/Divider/Divider";
 import {useHomeStyles} from "../pages/Home/theme";
 import {useSelector} from "react-redux";
-import {selectIsTagsLoaded, selectTagsItems} from "../store/tags/selectors";
+import {selectIsTagsLoaded, selectTagsItems} from "../store/ducks/tags/selectors";
 import {Link} from 'react-router-dom'
 
 interface TagsProps{

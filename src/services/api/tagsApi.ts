@@ -1,4 +1,4 @@
-import { TagsState} from "../../store/tags/contracts/state";
+import { TagsState} from "../../store/ducks/tags/contracts/state";
 import axios from "axios";
 
 export const TagsApi = {
