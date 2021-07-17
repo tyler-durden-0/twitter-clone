@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from "classnames";
-import {Avatar, Grid, Paper, Typography} from "@material-ui/core";
+import {Avatar, Paper, Typography} from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
 import CommentIcon from "@material-ui/icons/ChatBubbleOutline";
 import RepeatIcon from "@material-ui/icons/Repeat";

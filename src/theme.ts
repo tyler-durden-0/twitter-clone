@@ -1,5 +1,4 @@
 // @ts-nocheck
-import React from 'react'
 
 import { createMuiTheme } from "@material-ui/core";
 import { red } from "@material-ui/core/colors"

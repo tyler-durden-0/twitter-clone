@@ -9,6 +9,8 @@ import TextareaAutosize from '@material-ui/core/TextareaAutosize/TextareaAutosiz
 import CircularProgress from '@material-ui/core/CircularProgress/CircularProgress'
 import classNames from "classnames";
 import {useHomeStyles} from "../pages/Home/theme";
+import {useDispatch} from "react-redux";
+import {fetchAddTweet} from "../store/ducks/tweets/actionCreaters";
 
 interface AddTweetFormProps{
     classes: ReturnType<typeof  useHomeStyles>
@@ -16,6 +18,7 @@ interface AddTweetFormProps{
 }
 
 export const AddTweetForm: React.FC<AddTweetFormProps> = ({classes, maxRows}: AddTweetFormProps): React.ReactElement => {
+    const dispatch = useDispatch()
     const [text, setText] = React.useState<string>('')
     const textLimitPercent = text.length / 280 * 100
     const maxLength = 280 - text.length
@@ -27,6 +30,7 @@ export const AddTweetForm: React.FC<AddTweetFormProps> = ({classes, maxRows}: Ad
     }
 
     const handleClickAddTweet = (): void => {
+        dispatch(fetchAddTweet(text))
         setText('')
     }
 

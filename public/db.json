@@ -1,6 +1,7 @@
 {
   "tweets": [
     {
+      "id": 1,
       "_id": "60e97dc2a654c01114dfebb6",
       "text": "Amet laborum proident magna aliqua cillum aliquip nostrud consequat. In ad sint magna deserunt fugiat et ea enim dolor commodo culpa proident aute. Deserunt adipisicing excepteur minim nostrud proident nulla consectetur duis aute officia. Irure elit nulla incididunt excepteur eiusmod. Non do non culpa minim incididunt eiusmod mollit eu.",
       "user": {
@@ -89,13 +90,39 @@
         "userName": "griffith",
         "avatarUrl": "https://source.unsplash.com/random/100x100?2"
       }
+    },
+    {
+      "_id": "od2pfkmhuw",
+      "text": "test",
+      "user": {
+        "fullName": "Test user",
+        "userName": "test",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?5"
+      },
+      "id": 2
     }
   ],
   "tags": [
-    {"name":  "#HandOffRussionHistory", "count": 3357, "_id": "60e97dc2a654c01114db6"},
-    {"name":  "Лукашенко", "count": 765, "_id": "60e97dce54c01114dfebb6"},
-    {"name":  "Беларусь", "count": 167, "_id": "60e97dc2a65414dfebb6"},
-    {"name":  "Санкции", "count": 26, "_id": "60e9qwe2a654c01114dfebb6"}
+    {
+      "name": "#HandOffRussionHistory",
+      "count": 3357,
+      "_id": "60e97dc2a654c01114db6"
+    },
+    {
+      "name": "Лукашенко",
+      "count": 765,
+      "_id": "60e97dce54c01114dfebb6"
+    },
+    {
+      "name": "Беларусь",
+      "count": 167,
+      "_id": "60e97dc2a65414dfebb6"
+    },
+    {
+      "name": "Санкции",
+      "count": 26,
+      "_id": "60e9qwe2a654c01114dfebb6"
+    }
   ],
   "users": [
     {
@@ -119,6 +146,5 @@
     "fullName": "Chernetski Ivan",
     "userName": "chrnvn",
     "avatarUrl": "https://sun1.beltelecom-by-minsk.userapi.com/s/v1/if1/9khHCRpmoU4ERjkITliQiBWdLwezHBJpDVe5B9KuX9Sn_CtCtCm7YD6IF4xy_H_slHaPpf7N.jpg?size=50x0&quality=96&crop=1,29,362,362&ava=1"
-
   }
 }
