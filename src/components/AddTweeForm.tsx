@@ -7,10 +7,13 @@ import ImageOutlinedIcon from '@material-ui/icons/ImageOutlined';
 import EmojiIcon from '@material-ui/icons/SentimentSatisfiedOutlined';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize/TextareaAutosize'
 import CircularProgress from '@material-ui/core/CircularProgress/CircularProgress'
+import Alert from '@material-ui/lab/Alert';
 import classNames from "classnames";
 import {useHomeStyles} from "../pages/Home/theme";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {fetchAddTweet} from "../store/ducks/tweets/actionCreaters";
+import {selectAddFormState} from "../store/ducks/tweets/selectors";
+import {AddFormState} from "../store/ducks/tweets/contracts/state";
 
 interface AddTweetFormProps{
     classes: ReturnType<typeof  useHomeStyles>
@@ -19,6 +22,7 @@ interface AddTweetFormProps{
 
 export const AddTweetForm: React.FC<AddTweetFormProps> = ({classes, maxRows}: AddTweetFormProps): React.ReactElement => {
     const dispatch = useDispatch()
+    const addFormState = useSelector(selectAddFormState)
     const [text, setText] = React.useState<string>('')
     const textLimitPercent = text.length / 280 * 100
     const maxLength = 280 - text.length
@@ -81,14 +85,15 @@ export const AddTweetForm: React.FC<AddTweetFormProps> = ({classes, maxRows}: Ad
                     </>}
                     <Button
                         onClick={handleClickAddTweet}
-                        disabled={textLimitPercent >= 100}
+                        disabled={!text || textLimitPercent >= 100}
                         color='primary'
                         variant='contained'
                     >
-                        Твитнуть
+                        {addFormState === AddFormState.LOADING ? <CircularProgress color="inherit" size={16} /> : 'Твитнуть'}
                     </Button>
                 </div>
             </div>
+            {addFormState === AddFormState.ERROR && <Alert severity="error">Ошибка при добавлении твита <span role='img'>😞</span></Alert>}
         </div>
     )
 }
