@@ -66,6 +66,5 @@ export const Tweet: React.FC<TweetProps> = ({text, _id, user, classes}: TweetPro
                 </div>
             </Paper>
         </Link>
-
     )
 }

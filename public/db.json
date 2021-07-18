@@ -140,6 +140,36 @@
         "avatarUrl": "https://source.unsplash.com/random/100x100?5"
       },
       "id": 6
+    },
+    {
+      "_id": "b0amq0yhu6d",
+      "text": "добавляю твит для проверки добавления первым в список твитов",
+      "user": {
+        "fullName": "Test user",
+        "userName": "test",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?5"
+      },
+      "id": 7
+    },
+    {
+      "_id": "p5y5duoqu1",
+      "text": "1",
+      "user": {
+        "fullName": "Test user",
+        "userName": "test",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?5"
+      },
+      "id": 8
+    },
+    {
+      "_id": "98xvqsenvoq",
+      "text": "2",
+      "user": {
+        "fullName": "Test user",
+        "userName": "test",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?5"
+      },
+      "id": 9
     }
   ],
   "tags": [

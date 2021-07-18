@@ -3,9 +3,9 @@ import {useDispatch, useSelector} from "react-redux";
 import { useParams } from 'react-router-dom';
 import  {selectIsTweetLoading, selectTweetData} from "../../../store/ducks/tweet/selectors";
 import {fetchTweetData, setTweetData} from "../../../store/ducks/tweet/actionCreaters";
-import {Tweet} from "../../../components/Tweet";
 import {useHomeStyles} from "../theme";
-import {CircularProgress} from "@material-ui/core";
+import {Avatar, CircularProgress, Paper, Typography} from "@material-ui/core";
+import classNames from "classnames";
 
 export const FullTweet: React.FC = (): React.ReactElement | null => {
     const classes = useHomeStyles()
@@ -27,9 +27,49 @@ export const FullTweet: React.FC = (): React.ReactElement | null => {
 
     if(tweetData) {
         return(
-                <div>
-                    <Tweet classes={classes} {...tweetData}/>
+            <Paper className={classes.fullTweet}>
+                <div className={classNames(classes.tweetsHeaderUser)}>
+                    <Avatar
+                        className={classes.tweetAvatar}
+                        alt={`Аватарка пользователя ${tweetData.user.fullName}`}
+                        src={tweetData.user.avatarUrl}
+                    />
+                    <Typography>
+                        <b>{tweetData.user.fullName}</b>
+                        <div>
+                            <span className={classes.tweetUserName}>@{tweetData.user.userName}</span>&nbsp;
+                            <span className={classes.tweetUserName}>.</span>&nbsp;
+                            <span className={classes.tweetUserName}>1 час</span>
+                        </div>
+                    </Typography>
+                    {/*<div className={classes.tweetFooter}>*/}
+                    {/*    <div>*/}
+                    {/*        <IconButton color="primary">*/}
+                    {/*            <CommentIcon style={{fontSize: 20}} />*/}
+                    {/*        </IconButton>*/}
+                    {/*        <span>1</span>*/}
+                    {/*    </div>*/}
+                    {/*    <div>*/}
+                    {/*        <IconButton color="primary">*/}
+                    {/*            <RepeatIcon style={{fontSize: 20}} />*/}
+                    {/*        </IconButton>*/}
+                    {/*    </div>*/}
+                    {/*    <div>*/}
+                    {/*        <IconButton color="primary">*/}
+                    {/*            <LikeIcon style={{fontSize: 20}} />*/}
+                    {/*        </IconButton>*/}
+                    {/*    </div>*/}
+                    {/*    <div>*/}
+                    {/*        <IconButton color="primary">*/}
+                    {/*            <ShareIcon style={{fontSize: 20}} />*/}
+                    {/*        </IconButton>*/}
+                    {/*    </div>*/}
+                    {/*</div>*/}
                 </div>
+                <Typography className={classes.fullTweetText} gutterBottom>
+                    {tweetData.text}
+                </Typography>
+            </Paper>
         )
     }
 
