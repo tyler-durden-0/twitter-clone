@@ -1,9 +1,0 @@
-{
-  "dependencies": {
-    "express": "^4.17.1",
-    "express-validator": "^6.12.0",
-    "mongoose": "^5.13.3",
-    "ts-node": "^10.1.0",
-    "typescript": "^4.3.5"
-  }
-}
