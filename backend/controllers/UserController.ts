@@ -1,6 +1,7 @@
 import express from 'express'
 import {userModel} from "../models/UserModel";
 import {validationResult} from "express-validator";
+import {generateMD5} from "../utils/generateHash";
 
 class UserController {
     async index(req: express.Request, res: express.Response): Promise<void> {
@@ -31,7 +32,8 @@ class UserController {
                 email: req.body.email,
                 username: req.body.username,
                 fullname: req.body.fullname,
-                password: req.body.password
+                password: req.body.password,
+                confirm_hash: generateMD5(Math.random().toString())
             }
 
             const user = await userModel.create(data)
