@@ -52,7 +52,7 @@ class UserController {
                         message: err
                     })
                 } else {
-                    res.json({
+                    res.status(201).json({
                         status: 'success',
                         data: user
                     })
@@ -76,12 +76,19 @@ class UserController {
                 return
             }
 
-            const users = await userModel.find({confirmHash: hash}).exec()
+            const user = await userModel.findOne({confirmHash: hash}).exec()
 
-            res.json({
-                status: 'success',
-                data: users
-            })
+            if(user) {
+                user.confirmed = true
+                await user.save()
+
+                res.json({
+                    status: 'success'
+                })
+            } else {
+                res.status(404).json({status: 'success',message: 'Пользователь не найден'})
+            }
+
         } catch(error) {
             res.status(500).json({
                 status: 'error',
