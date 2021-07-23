@@ -2,6 +2,7 @@ import express from 'express'
 import {userModel} from "../models/UserModel";
 import {validationResult} from "express-validator";
 import {generateMD5} from "../utils/generateHash";
+import {sendEmail} from "../utils/sendEmail";
 
 class UserController {
     async index(req: express.Request, res: express.Response): Promise<void> {
@@ -33,17 +34,36 @@ class UserController {
                 username: req.body.username,
                 fullname: req.body.fullname,
                 password: req.body.password,
-                confirm_hash: generateMD5(process.env.SECRET_KEY ||Math.random().toString())
+                confirmHash: generateMD5(process.env.SECRET_KEY ||Math.random().toString())
             }
 
             const user = await userModel.create(data)
 
-            res.json({
-                status: 'success',
-                data: user
+            sendEmail({
+                emailFrom: "admin@test.com",
+                emailTo: data.email,
+                subject: "Подтверждение почты Twitter Clone Tutorial",
+                html: `Для того, чтобы подтвердить почту, перейдите <a href="http://localhost:${process.env.PORT || 8888}/users/verify?hash=${data.confirmHash}">по этой ссылке</a>`,
+            },
+                (err: Error | null) => {
+                if(err) {
+                    res.json({
+                        status: 'error',
+                        message: JSON.stringify(err)
+                    })
+                } else {
+                    res.json({
+                        status: 'success',
+                        data: user
+                    })
+                }
             })
-        } catch (error) {
 
+        } catch (error) {
+            res.json({
+                status: 'error',
+                message: JSON.stringify(error)
+            })
         }
     }
 }
