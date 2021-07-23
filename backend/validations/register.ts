@@ -1,4 +1,3 @@
-import validator from 'express-validator'
 import {body} from "express-validator";
 
 export const registerValidations = [

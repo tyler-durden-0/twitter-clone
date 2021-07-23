@@ -5,7 +5,7 @@ import {generateMD5} from "../utils/generateHash";
 import {sendEmail} from "../utils/sendEmail";
 
 class UserController {
-    async index(req: express.Request, res: express.Response): Promise<void> {
+    async index(res: express.Response): Promise<void> {
         try {
             const users = await userModel.find({}).exec()
 
@@ -16,7 +16,7 @@ class UserController {
         } catch(error) {
             res.json({
                 status: 'error',
-                message: JSON.stringify(error)
+                message: error
             })
         }
     }
@@ -47,9 +47,9 @@ class UserController {
             },
                 (err: Error | null) => {
                 if(err) {
-                    res.json({
+                    res.status(500).json({
                         status: 'error',
-                        message: JSON.stringify(err)
+                        message: err
                     })
                 } else {
                     res.json({
@@ -60,9 +60,32 @@ class UserController {
             })
 
         } catch (error) {
-            res.json({
+            res.status(500).json({
                 status: 'error',
                 message: JSON.stringify(error)
+            })
+        }
+    }
+
+    async verify(req: express.Request, res: express.Response): Promise<void> {
+        try {
+            const hash = req.query.hash
+
+            if(!hash) {
+                res.status(400).send()
+                return
+            }
+
+            const users = await userModel.find({confirmHash: hash}).exec()
+
+            res.json({
+                status: 'success',
+                data: users
+            })
+        } catch(error) {
+            res.status(500).json({
+                status: 'error',
+                message: error
             })
         }
     }

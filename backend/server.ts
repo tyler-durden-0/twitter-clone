@@ -11,7 +11,7 @@ app.use(express.json())
 
 app.get('/users', userCtrl.index)
 app.post('/users', registerValidations , userCtrl.create)
-app.post('/verify', registerValidations , userCtrl.create)
+app.get('/verify', registerValidations , userCtrl.verify)
 
 app.listen(process.env.PORT, (): void => {
     console.log('SERVER IS RUNNING!')
