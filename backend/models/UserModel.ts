@@ -32,4 +32,13 @@ const userSchema = new Schema({
     website: String,
 })
 
+userSchema.set('toJSON',{
+    transform: function(_: any, obj: any){
+        delete obj.password
+        delete obj.confirmHash
+        return obj
+    }
+
+})
+
 export const userModel = model('User', userSchema)
