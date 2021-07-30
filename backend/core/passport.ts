@@ -1,7 +1,8 @@
 import passport from 'passport'
 import {Strategy as localStrategy} from 'passport-local'
-import {userModel} from "../models/UserModel";
+import {userModel, UserModelInterface} from "../models/UserModel";
 import {generateMD5} from "../utils/generateHash";
+import {Strategy as JWTstrategy, ExtractJwt } from 'passport-jwt'
 
 passport.use(
     new localStrategy(
@@ -24,8 +25,24 @@ passport.use(
     })
 )
 
+passport.use(
+    new JWTstrategy(
+        {
+            secretOrKey: process.env.SECRET_KEY || '123',
+            jwtFromRequest: ExtractJwt.fromUrlQueryParameter('token')
+        },
+        async (payload, done) => {
+            try {
+                return done(null, payload.user)
+            } catch(error) {
+                done(error)
+            }
+        }
+    )
+)
+
 //сделать interface для юзера
-passport.serializeUser((user, done) => {
+passport.serializeUser((user: UserModelInterface, done) => {
     done(null, user?._id)
 })
 

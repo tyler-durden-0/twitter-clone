@@ -1,6 +1,7 @@
 import express from 'express'
 import mongoose from 'mongoose'
-import {userModel} from "../models/UserModel";
+import jwt from 'jsonwebtoken'
+import {userModel, UserModelDocumentInterface} from "../models/UserModel";
 import {validationResult} from "express-validator";
 import {generateMD5} from "../utils/generateHash";
 import {sendEmail} from "../utils/sendEmail";
@@ -127,6 +128,40 @@ class UserController {
             })
         }
     }
+
+    async afterLogin(req: express.Request, res: express.Response): Promise<void> {
+        try {
+            const user = req.user ? (req.user as UserModelDocumentInterface).toJSON() : undefined
+            res.json({
+                status: 'success',
+                data: {
+                    ...user,
+                    token: jwt.sign({data: req.user}, process.env.SECRET_KEY || '123', {expiresIn: '30d'})
+                }
+            })
+        } catch(error) {
+            res.status(500).json({
+                status: 'error',
+                message: error
+            })
+        }
+    }
+
+    async getUserInfo(req: express.Request, res: express.Response): Promise<void> {
+        try {
+            const user = req.user ? (req.user as UserModelDocumentInterface).toJSON() : undefined
+            res.json({
+                status: 'success',
+                data: user
+            })
+        } catch(error) {
+            res.status(500).json({
+                status: 'error',
+                message: error
+            })
+        }
+    }
+
 }
 
 export const userCtrl = new UserController()
