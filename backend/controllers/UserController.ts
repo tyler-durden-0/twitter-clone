@@ -136,7 +136,7 @@ class UserController {
                 status: 'success',
                 data: {
                     ...user,
-                    token: jwt.sign({data: req.user}, process.env.SECRET_KEY || '123', {expiresIn: '30d'})
+                    token: jwt.sign({data: req.user}, process.env.SECRET_KEY || '123', {expiresIn: '30 days'})
                 }
             })
         } catch(error) {

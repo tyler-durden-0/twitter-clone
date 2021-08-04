@@ -12,7 +12,7 @@ app.use(express.json())
 app.use(passport.initialize())
 
 app.get('/users', userCtrl.index)
-app.get('/users/me', passport.authenticate('jwt'),userCtrl.getUserInfo)
+app.get('/users/me', passport.authenticate('jwt', {session: 'false'}),userCtrl.getUserInfo)
 app.get('/users/:id', userCtrl.show)
 app.get('/auth/verify', registerValidations , userCtrl.verify)
 app.post('/auth/register', registerValidations , userCtrl.create)
